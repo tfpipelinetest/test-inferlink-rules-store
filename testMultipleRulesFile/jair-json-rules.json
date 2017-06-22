@@ -1,0 +1,38 @@
+{
+  "rules": [
+    {
+      "begin_regex": "/p\\>\\s+\\<p\\>",
+      "end_regex": "\\<",
+      "include_end_regex": true,
+      "name": "abstract",
+      "removehtml": false,
+      "required": true,
+      "rule_type": "ItemRule",
+      "strip_end_regex": "\\<"
+    },
+    {
+      "begin_regex": "\\)",
+      "end_regex": "\\</title\\>\\s+\\<link",
+      "include_end_regex": true,
+      "name": "title",
+      "removehtml": false,
+      "required": true,
+      "rule_type": "ItemRule",
+      "strip_end_regex": "\\</title\\>\\s+\\<link"
+    },
+    {
+      "begin_regex": "\\>\\s+\\<title\\>",
+      "end_regex": "\\(",
+      "include_end_regex": true,
+      "name": "authors",
+      "removehtml": false,
+      "required": true,
+      "rule_type": "ItemRule",
+      "strip_end_regex": "\\(",
+      "visible_chunk_after": "("
+    }
+  ],
+  "metadata": {
+    "tld": "jair.org"
+  }
+}

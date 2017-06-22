@@ -1,0 +1,53 @@
+{
+  "rules": [
+    {
+      "begin_regex": "=\"itemlist\"\\>\\s+\\<.*?storylink\"\\>",
+      "end_regex": "\\<tr\\s+class=\"morespace",
+      "include_end_regex": true,
+      "iter_begin_regex": "\"\\s+class=\"storylink\".*?\\>",
+      "iter_end_regex": "\\</a\\>\\s+\\</td",
+      "name": "articles",
+      "no_first_begin_iter_rule": true,
+      "no_last_end_iter_rule": false,
+      "rule_type": "IterationRule",
+      "strip_end_regex": "\\<tr\\s+class=\"morespace",
+      "sub_rules": [
+        {
+          "begin_regex": "href=\"from\\?site.*?=",
+          "end_regex": "\"\\>",
+          "include_end_regex": true,
+          "name": "publication",
+          "removehtml": false,
+          "required": true,
+          "rule_type": "ItemRule",
+          "strip_end_regex": "\"\\>",
+          "visible_chunk_before": "("
+        },
+        {
+          "begin_regex": "\"\\>hide\\</a.*?\"\\>",
+          "end_regex": "",
+          "include_end_regex": true,
+          "name": "comments",
+          "removehtml": false,
+          "required": true,
+          "rule_type": "ItemRule",
+          "strip_end_regex": "",
+          "visible_chunk_after": "ENDOFPAGE"
+        },
+        {
+          "begin_regex": "",
+          "end_regex": "\\</a\\>",
+          "include_end_regex": true,
+          "name": "title",
+          "removehtml": false,
+          "required": true,
+          "rule_type": "ItemRule",
+          "strip_end_regex": "\\</a\\>"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "tld": "news.ycombinator.com"
+  }
+}
